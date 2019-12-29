@@ -9,4 +9,6 @@ create table rice(
  price varchar(255)
  );
  
- insert into rice value (1,"Cơm gà xối mỡ","https://gaongon24h.com/wp-content/uploads/2017/10/com-ga-xoi-mo.jpg","20000");
+ insert into rice value (1,"Cơm gà xối mỡ","https://gaongon24h.com/wp-content/uploads/2017/10/com-ga-xoi-mo.jpg","20000"),
+                        (2,"Cơm gà xối mỡ","https://gaongon24h.com/wp-content/uploads/2017/10/com-ga-xoi-mo.jpg","20000"),
+                        (3,"Cơm gà xối mỡ","https://gaongon24h.com/wp-content/uploads/2017/10/com-ga-xoi-mo.jpg","20000");

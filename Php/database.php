@@ -15,26 +15,16 @@ $db = new mysqli("localhost", "root", "", "ricemanagement");
 
 
 
-    $anh = "";
-    $ten = "";
-    $gia = "";
   
 
 //Lấy giá trị POST từ form vừa submit
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_POST["anh"])) { $anh = $_POST['anh']; }
-    if(isset($_POST["ten"])) { $ten = $_POST['ten']; }
-    if(isset($_POST["gia"])) { $gia = $_POST['gia']; }
-    
-    //Code xử lý, insert dữ liệu vào table
-    $sql = "INSERT INTO rice (anh, ten, gia)
-    VALUES ('$anh', '$ten', '$gia')";
-
-    if ($db->query($sql) === TRUE) {
-        echo "Thêm dữ liệu thành công";
-    } else {
-        echo "Error: " . $sql . "<br>" . $db->error;
-    }
+if (isset($_POST['them'])) {
+    $db->query("INSERT INTO rice (name,image,price) values('".$_POST['ten']."','".$_POST['anh']."','".$_POST['gia']."')");
+    header('refresh:0');
+}
+if (isset($_POST['xoa'])) {
+    $db->query("delete from rice where id = ".$_POST['xoa']);
+   header('refresh:0');
 }
 
  ?>

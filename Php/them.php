@@ -43,19 +43,22 @@
 			</tr>
 		
 		<tbody>
-			<tr>
+			    <form method="POST">
 				<?php
 				for ($i=0; $i < count($result)  ; $i++) { 
 					?>
+					<tr>
 				<td><?php  echo $result[$i][0]; ?></td>
-				<td><img src="<?php  echo $result[$i][2]; ?>"></td>
+				<td style="width: 300px"><img style="width: 200px; height: 200px" src="<?php  echo $result[$i][2]; ?>"></td>
 				<td><?php  echo $result[$i][1]; ?></td>
 				<td><?php  echo $result[$i][3]; ?></td>
 				<td><button type="button" class="btn btn-default">Sửa</button>
-				<button type="button" class="btn btn-default">Xóa</button></td>
+				<button name="xoa" value=<?php echo $result[$i][0] ?>  >Xóa</button></td>
+				</tr>
 			<?php } ?>
+			</form>
 
-			</tr>
+			
 		</tbody>
 	</table>
 
