@@ -4,11 +4,13 @@
 	<title>Rice store</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+	
 	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../Css/admin.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -21,10 +23,77 @@
 							<li><img src="../Img/map.png">Xuân Phú - Hòa Sơn - Hòa Vang - TP. Đà Nẵng</li>
 							<li><img src="../Img/fb.png">Dàn Nhạc Trịnh</li>
 						</ul>
-						<ul class="flex2">
-							<li><img src="../Img/user.png">Đăng kí</li>
-							<li><img src="../Img/user.png">Đăng nhập</li>
-						</ul>
+						<div class="flex2">
+							<button  data-toggle="modal" data-target="#dangki"><img src="../Img/user.png">Đăng kí</button>
+						<div class="modal fade" id="dangki" role="dialog">
+							<div class="modal-dialog">
+
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title">Chào mừng</h4>
+									</div>
+									<div class="modal-body">
+										<div class="form-group">
+											<div class="row"> 
+												<div class="col-xs-6 col-md-6">
+
+
+												 <input class="form-control" name="firstname" placeholder="Họ" required="" autofocus="" type="text"> 
+												</div> 
+												<div class="col-xs-6 col-md-6"> <input class="form-control" name="lastname" placeholder="Tên" required="" type="text"> 
+												</div> 
+											</div> <input class="form-control" name="youremail" placeholder="Email" type="email"> <input class="form-control" name="password" placeholder="Mật khẩu" type="password"> <input class="form-control" name="retypepassword" placeholder="Nhập lại mật khẩu" type="password"> <label for=""> Ngày sinh</label> 
+											<div class="row"> 
+												<div class="col-xs-4 col-md-4"> <select class="form-control">              <option value="Day">Ngày</option>            </select> 
+												</div> 
+												<div class="col-xs-4 col-md-4"> <select class="form-control">              <option value="Month">Tháng</option>            </select> 
+												</div> 
+												<div class="col-xs-4 col-md-4"> <select class="form-control">              <option value="Year">Năm</option>            </select> 
+												</div> 
+											</div> <label class="radio-inline">          <input name="sex" id="inlineCheckbox1" value="male" type="radio">          Nam </label> <label class="radio-inline">          <input name="sex" id="inlineCheckbox2" value="female" type="radio">          Nữ </label> 
+											<br> 
+											<br> 
+											<button class="btn btn-lg btn-primary btn-block" type="submit"> Đăng ký</button> 
+											
+										</div>
+										
+									</div>
+									
+								</div>
+
+							</div>
+						</div>
+							<button data-toggle="modal" data-target="#dangnhap"><img src="../Img/user.png">Đăng nhập</button>
+						<div class="modal fade" id="dangnhap" role="dialog">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title">Mời Bạn đăng nhập</h4>
+									</div>
+									<div class="modal-body">
+										<div class="form-group">
+											<div class="row"> 
+												<div class="col-xs-6 col-md-6">
+												<input class="form-control" name="firstname" placeholder="Họ" required="" autofocus="" type="text"> 
+												</div> 
+												<div class="col-xs-6 col-md-6"> <input class="form-control" name="lastname" placeholder="Tên" required="" type="text"> 
+												</div> 
+
+											
+											 <input class="form-control" name="password" placeholder="Mật khẩu" type="password"> 
+											<button class="btn btn-lg btn-primary btn-block" type="submit"> Đăng nhập</button> 
+											
+										</div>
+										
+									</div>
+								</div>
+
+							</div>
+						</div>
+						</div>
 					</div>
 				</div>
 				<hr>
@@ -97,7 +166,7 @@
 						<li><a href="#">Gà luộc</a></li>
 					</ul>
 				</li>
-				<li style="margin-right: 450px;"><a href="#">KHÁC</a></li>
+				<li style="margin-right: 350px;"><a href="../Php/them.php">THÊM</a></li>
 				<input autocomplete="off" class="search" placeholder="Tìm kiếm bài viết" spellcheck="false" type="text">
 
 
@@ -175,25 +244,32 @@
 					for ($i=0; $i < count($result)  ; $i++) { 
 					?>
 					<div  class="border">
-						<img  height="200px" width="200px" src="<?php echo $result[$i][1] ?>" alt="">
-						<p><?php  echo $result[$i][2]; ?></p>
+						<img  class="anh" src="<?php echo $result[$i][2] ?>" alt="">
+						<p><?php  echo $result[$i][1]; ?></p>
+						<p><?php  echo $result[$i][3]; ?></p>
+					</div>	
+					<?php 
+					}
+					?>
+				</div>
+				<div style="text-align: center;">
+					<h1>Cơm Sườn</h1>
+				</div>
+				<div style="display: flex; justify-content: center;">
+					<?php include 'database.php';
+					for ($i=0; $i < count($result)  ; $i++) { 
+					?>
+					<div  class="border">
+						<img  height="200px" width="200px" src=<?php echo "'".$result[$i][2]."'" ?>>
+						<p><?php  echo $result[$i][1]; ?></p>
 						<p><?php echo $result[$i][3]; ?></p>
 					</div>	
 					<?php 
 					}
 					?>
 				</div>
-				<br>
-
-					<form action="" method="get" accept-charset="utf-8">
-						<label>Link ảnh</label>
-						<input type="" name="">
-						<label>Tên</label>
-						<input type="" name="">
-						<label>Giá</label>
-						<input type="" name="">
-						
-					</form>
+				
+				
 			</div>
 
 
