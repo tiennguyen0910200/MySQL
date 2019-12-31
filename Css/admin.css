@@ -31,6 +31,9 @@
 .container1{
 	align-items: center;
 }
+.header1{
+	background-color: #dfd7d4;
+}
 .header2{
 	display: flex;
 	justify-content: center;
@@ -139,18 +142,21 @@
 .border{
 	align-items: center;
 	border: 1px black solid;
-	width: 230px;
-	height: 300px;
+	width: 250px;
+	height: 350px;
 	text-align: center;
-	padding: 20px;
-	margin-right: 30px;
+	padding: 35px;
+	margin-right: 35px;
 }
 .anh{
-	width: 200px;
+
+	width: 210px;
 	height: 200px;
+
 }
 .anh:hover{
-	transition: all 0.5s ease;
+transform: scale(1.2);
+       
 }
 button{
 	border-radius: 8px;
@@ -159,4 +165,10 @@ button{
 }
 button:hover{
 	background-color: #1F568B;
+}
+footer{
+  
+   text-align: center;
+    padding:25px;
+    font-size:18px;
 }
